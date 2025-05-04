@@ -5,6 +5,8 @@ import HomePage from './components/HomePage'
 import CryptoCurrencies from './components/CryptoCurrencies'
 import Exchanges from './components/Exchanges'
 import News from './components/News'
+import { Provider } from 'react-redux'
+import { store } from './app/store'
 
 function App() {
   const router = createBrowserRouter([
@@ -20,7 +22,9 @@ function App() {
   ])
   return (
     <>
-      <RouterProvider router={router} />
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
     </>
   )
 }

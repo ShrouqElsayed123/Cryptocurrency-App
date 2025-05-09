@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useGetCryptosQuery } from "../services/cryptoApi"
-import { Card, Col, Row } from 'antd';
+import { Card, Col, Input, Row } from 'antd';
 import millify from "millify";
 import { NavLink } from "react-router-dom";
+import Loader from "./Loader";
 
 // eslint-disable-next-line react/prop-types
 export default function CryptoCurrencies({ simplified }) {
@@ -14,16 +15,25 @@ export default function CryptoCurrencies({ simplified }) {
 
 
   } = useGetCryptosQuery(count)
-  const [crypto, setCrypto] = useState(cryptosList?.data?.coins)
+  const [crypto, setCrypto] = useState()
+  const [searchTerm, setSearchTerm] = useState('')
   console.log(crypto);
 
-
+  useEffect(() => {
+    // setCrypto(cryptosList?.data?.coins)
+    const filteredData = cryptosList?.data?.coins.filter((coin) => coin.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    setCrypto(filteredData)
+  }, [cryptosList, searchTerm])
+  if (isFetching) return <Loader />
 
   return (
     <>
+      <div className="search-crypto">
+        <Input placeholder="Search Crypto Currency" onChange={(e) => setSearchTerm(e.target.value)} />
+      </div>
       <Row gutter={[32, 32]} className="crypto-card-container">
 
-        {crypto.map((currency) => (
+        {crypto?.map((currency) => (
           <Col xs={24} sm={12} md={8} lg={6} key={currency.uuid} className="crypto-card">
             <NavLink to={`/crypto/${currency.uuid}`}>
               <Card title={`${currency.rank} - ${currency.name}`} extra={<img src={currency.iconUrl} className="crypto-image" />} hoverable>

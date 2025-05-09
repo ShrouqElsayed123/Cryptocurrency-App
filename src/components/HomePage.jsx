@@ -11,7 +11,7 @@ export default function HomePage() {
     data,
     isFetching
 
-  } = useGetCryptosQuery()
+  } = useGetCryptosQuery(10)
   const globalStats = data?.data?.stats
 
 
@@ -40,7 +40,7 @@ export default function HomePage() {
         <Title level={2} className="home-title">Top 10 cryptocurrencies In The World</Title>
         <Title level={2} className="show-more"><NavLink to="/cryptocurrencies">Show more</NavLink></Title>
       </div>
-      <CryptoCurrencies simplified={true} />
+      <CryptoCurrencies simplified />
       <div className="home-heading-container">
         <Title level={2} className="home-title">Latest cryptocurrencies news</Title>
         <Title level={2} className="show-more"><NavLink to="/news">Show more</NavLink></Title>

@@ -50,7 +50,7 @@ export default function Navbar() {
         gap: 10,
       }}>
         <img src={logo} width={30} height={30} alt="logo" />
-        <h2 style={{ margin: 0, fontSize: 18 }}>Ant Design</h2>
+        <h2 style={{ margin: 0, fontSize: 18 }}> Crypto Currency </h2>
       </div>
       <Menu
         theme="dark"

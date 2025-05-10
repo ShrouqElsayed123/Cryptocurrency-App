@@ -367,6 +367,7 @@ a:hover {
     justify-content: space-between;
     align-items: center;
     margin-top: 40px;
+    padding-bottom: 10px;
 }
 
 .show-more {
@@ -379,7 +380,8 @@ a:hover {
 
 .search-crypto {
     margin: 20px auto 30px auto;
-    width: 250px;
+    width: 50%;
+
 }
 
 .crypto-card-container {

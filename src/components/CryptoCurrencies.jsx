@@ -4,7 +4,8 @@ import { Card, Col, Input, Row } from 'antd';
 import millify from "millify";
 import { NavLink } from "react-router-dom";
 import Loader from "./Loader";
-
+import { HomeOutlined } from '@ant-design/icons';
+import { Breadcrumb } from 'antd';
 // eslint-disable-next-line react/prop-types
 export default function CryptoCurrencies({ simplified }) {
   const count = simplified ? 10 : 100;
@@ -17,7 +18,7 @@ export default function CryptoCurrencies({ simplified }) {
   } = useGetCryptosQuery(count)
   const [crypto, setCrypto] = useState()
   const [searchTerm, setSearchTerm] = useState('')
-  console.log(crypto);
+
 
   useEffect(() => {
     // setCrypto(cryptosList?.data?.coins)
@@ -28,9 +29,28 @@ export default function CryptoCurrencies({ simplified }) {
 
   return (
     <>
-      <div className="search-crypto">
-        <Input placeholder="Search Crypto Currency" onChange={(e) => setSearchTerm(e.target.value)} />
-      </div>
+      {!simplified && (
+        <div>
+          <Breadcrumb
+            items={[
+              {
+                href: '/',
+                title: <HomeOutlined />,
+              },
+
+              {
+                title: 'CryptoCurrencies',
+              },
+            ]}
+          />
+          <div className="search-crypto">
+            <Input placeholder="Search Crypto Currency" onChange={(e) => setSearchTerm(e.target.value)} />
+          </div>
+        </div>
+
+      )
+      }
+
       <Row gutter={[32, 32]} className="crypto-card-container">
 
         {crypto?.map((currency) => (

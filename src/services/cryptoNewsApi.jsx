@@ -19,6 +19,7 @@ export const cryptoNewsApi = createApi({
                 url: `/latest?lr=en-US`,
                 headers: cryptoNewsHeader,
 
+
             })
         })
     })

@@ -12,7 +12,7 @@ export default function CryptoCurrencies({ simplified }) {
 
   const {
     data: cryptosList,
-    isFetching
+    isLoading
 
 
   } = useGetCryptosQuery(count)
@@ -25,7 +25,7 @@ export default function CryptoCurrencies({ simplified }) {
     const filteredData = cryptosList?.data?.coins.filter((coin) => coin.name.toLowerCase().includes(searchTerm.toLowerCase()))
     setCrypto(filteredData)
   }, [cryptosList, searchTerm])
-  if (isFetching) return <Loader />
+  if (isLoading) return <h1>Loading.......... ⏳</h1>
 
   return (
     <>

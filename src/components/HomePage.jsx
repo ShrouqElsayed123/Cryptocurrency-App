@@ -45,7 +45,7 @@ export default function HomePage() {
         <Title level={2} className="home-title">Latest cryptocurrencies news</Title>
         <Title level={2} className="show-more"><NavLink to="/news">Show more</NavLink></Title>
       </div>
-      <News />
+      <News simplified />
 
 
     </>

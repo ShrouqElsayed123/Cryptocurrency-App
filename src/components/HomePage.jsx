@@ -2,7 +2,7 @@ import { Col, Row, Statistic, Typography } from "antd";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 import { NavLink } from 'react-router-dom';
 import CryptoCurrencies from "./CryptoCurrencies";
-import News from "./News";
+// import News from "./News";
 import Loader from "./Loader";
 const { Title } = Typography;
 
@@ -41,11 +41,11 @@ export default function HomePage() {
         <Title level={2} className="show-more"><NavLink to="/cryptocurrencies">Show more</NavLink></Title>
       </div>
       <CryptoCurrencies simplified />
-      <div className="home-heading-container">
+      {/* <div className="home-heading-container">
         <Title level={2} className="home-title">Latest cryptocurrencies news</Title>
         <Title level={2} className="show-more"><NavLink to="/news">Show more</NavLink></Title>
-      </div>
-      <News simplified />
+      </div> */}
+      {/* <News simplified /> */}
 
 
     </>

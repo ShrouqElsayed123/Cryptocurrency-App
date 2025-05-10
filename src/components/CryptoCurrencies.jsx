@@ -3,7 +3,6 @@ import { useGetCryptosQuery } from "../services/cryptoApi"
 import { Card, Col, Input, Row } from 'antd';
 import millify from "millify";
 import { NavLink } from "react-router-dom";
-import Loader from "./Loader";
 import { HomeOutlined } from '@ant-design/icons';
 import { Breadcrumb } from 'antd';
 // eslint-disable-next-line react/prop-types

@@ -5,10 +5,10 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
 const cryptoNewsHeader = {
     'x-rapidapi-key': import.meta.env.VITE_RAPIDAPI_KEY,
-    'x-rapidapi-host': 'google-news13.p.rapidapi.com'
+    'x-rapidapi-host': 'newsapi90.p.rapidapi.com'
 }
 
-const baseUrl = 'https://google-news13.p.rapidapi.com'
+const baseUrl = 'https://newsapi90.p.rapidapi.com/topic'
 
 export const cryptoNewsApi = createApi({
     reducerPath: 'cryptoNewsApi',
@@ -16,7 +16,7 @@ export const cryptoNewsApi = createApi({
     endpoints: (builder) => ({
         getCryptoNews: builder.query({
             query: () => ({
-                url: `/latest?lr=en-US`,
+                url: `/business?language=en-US&region=US`,
                 headers: cryptoNewsHeader,
 
 
